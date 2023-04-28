@@ -49,8 +49,8 @@ public class EmployeeService {
 		if(optionalemployee.isPresent()) {
 			oldemp=optionalemployee.get();
 			oldemp.setEmpname(employee.getEmpname());
-			oldemp.setAddress(employee.getAddress());
-			oldemp.setLocation(employee.getLocation());
+//			oldemp.setAddress(employee.getAddress());
+//			oldemp.setLocation(employee.getLocation());
 			
 			repo.save(oldemp);
 		}else {
