@@ -44,22 +44,23 @@ public class EmployeeService {
 
 	public Employee updateEmployee(int id, Employee employee) {
 		// TODO Auto-generated method stub
-//		Employee oldemp=null;
-//		Optional<Employee>optionalemployee=repo.findById(id);
-//		if(optionalemployee.isPresent()) {
-//			oldemp=optionalemployee.get();
-//			oldemp.setEmpname(employee.getEmpname());
+		Employee oldemp=null;
+		Optional<Employee>optionalemployee=repo.findById(id);
+		if(optionalemployee.isPresent()) {
+			oldemp=optionalemployee.get();
+			oldemp.setEmpid(employee.getEmpid());
+			oldemp.setEmpname(employee.getEmpname());
 //			oldemp.setAddress(employee.getAddress());
 //			oldemp.setLocation(employee.getLocation());
-//
-//			repo.save(oldemp);
-//		}else {
-//			return new Employee();
-//		}
-//		return oldemp;
-//	}
-//
-		employee.setId(id);
-		return repo.save(employee);
+
+			repo.save(oldemp);
+		}else {
+			return new Employee();
+		}
+		return oldemp;
 	}
+
+//		employee.setId(id);
+//		return repo.save(employee);
+//	}
 }
