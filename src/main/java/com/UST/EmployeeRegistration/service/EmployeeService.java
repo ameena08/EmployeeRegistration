@@ -42,10 +42,10 @@ public class EmployeeService {
 		return "the employee information is deleted";
 	}
 
-	public Employee updateEmployee(Employee employee) {
+	public Employee updateEmployee(int id,Employee employee) {
 		// TODO Auto-generated method stub
 		Employee oldemp=null;
-		Optional<Employee>optionalemployee=repo.findById(employee.getId());
+		Optional<Employee>optionalemployee=repo.findById(id);
 		if(optionalemployee.isPresent()) {
 			oldemp=optionalemployee.get();
 			oldemp.setEmpname(employee.getEmpname());
@@ -56,7 +56,7 @@ public class EmployeeService {
 		}else {
 			return new Employee();
 		}
-		return null;
+		return oldemp;
 	}
 
 }

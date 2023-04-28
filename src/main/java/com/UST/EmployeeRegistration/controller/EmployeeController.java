@@ -42,10 +42,15 @@ public class EmployeeController {
 	public Employee getEmployeeById(@PathVariable int id){
 		return employeeService.getEmployeeById(id);
 }
+
+
 	@PutMapping("/updateemployee/{id}")
-	public Employee updateEmployee(@RequestBody Employee employee) {
-		return employeeService.updateEmployee(employee);
+	public Employee updateEmployee(@PathVariable int id,@RequestBody Employee employee) {
+		employee.setId(id);
+		return employeeService.updateEmployee(id,employee);
 	}
+
+
 	@DeleteMapping("/deleteemployee/{id}")
 	public String deleteEmployee(@PathVariable int id) {
 		return employeeService.deleteEmployeeById(id);
